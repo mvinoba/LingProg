@@ -1,0 +1,87 @@
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[utf8]{inputenc} % Acentos
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage{graphicx}
+\usepackage{indentfirst}
+
+\usepackage[inline]{enumitem} % inline enumerating
+
+
+\usepackage[brazil]{babel} % Portuguese Language
+
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{Universidade Federal do Rio de Janeiro} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Linguagens de Programação \\
+\huge Trabalho 1 \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Aluno: Vinícius Aguiar Figueiredo \\
+		Professor: Miguel Elias Mitre Campista} % Your name
+
+
+\date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+\clearpage
+
+\section{Introdução e Definição do Problema}
+
+Atualmente é muito comum o preenchimento de formulários com dados pessoais em pesquisas, estatísticas, registros em plataformas, seminários e etc. Apesar de já existirem ferramentas para validação em tempo real do preenchimento dos tais formulários, como por exemplo através do uso do \textit{JavaScript}, ainda há muitos casos em que os dados adquiridos estão sem tratamentos de validação, de forma que esta disposição dos dados dificulta quaisquer trabalhos estatísticos automáticos que o administrador possa querer implementar. Com isso em mente, o programa do trabalho consistirá numa aplicação que simplifique a validação de dados já adquiridos de diversos campos comuns de formulários. 
+
+\section{Implementação do Programa}
+
+O programa será implementado usando C++ e Perl, de forma a exercer a validação de bancos de dados de \textbf{cinco} campos comumente encontrados em formulários, oferecidos ao usuário através de um menu de cinco opções: número de celular, CPF, RG, CEP e e-mail. A entrada do usuário, além da opção, será um arquivo de texto contendo, linha por linha, o conteúdo a ser validado. A saída será um outro arquivo de texto, contendo  a informação original formatada de forma coerente e informações de quais dados foram validados e quais foram invalidados, e neste último caso, o motivo de tal invalidação. A validação será feita usando expressões regulares (\textit{regex}) e tomará por base a quantidade de algarismos, presença de caracteres inválidos e a devida formatação, assim como os algoritmos conhecidos de validação de alguns campos, como é, por exemplo, o caso do CPF.  
+
+\section{O código em C++}
+
+O código em C++ será responsável por fornecer a interface de linha de comando ao usuário, de forma amigável, contendo as opções de uso do software e permitindo flexibilização em relação ao nome dos arquivos gerenciados. Também será o responsável por chamar os códigos de validação e tratamento dos arquivos de texto, escritos em Perl. Entradas: \begin{enumerate*} \item Uma das cinco opções de uso. \item Nome(e diretório) do arquivo de texto a ser analisado.  \end{enumerate*}  
+Saídas: \begin{enumerate*} \item Fornecer às funções escritas em Perl seus parâmetros, como a opção selecionada pelo usuário. \item Arquivo de texto contendo informação original devidamente formatada e informações sobre o resultado das validações.  \end{enumerate*}
+
+\section{O código em Perl}
+
+O código em Perl será o responsável por realizar todo o processo de validação dos dados descrito anteriomente, utilizando principalmente expressões regulares, suas funções específicas serão chamadas pelo código em C++ e também retornarão os seus resultados ao código em C++. Entradas, ambas provindas do código em C++: \begin{enumerate*} \item Opção selecionada pelo usuário \item Nome(e diretório) do arquivo de texto. \end{enumerate*}  
+Saídas: \begin{enumerate*} \item Arquivo(s) de texto com informações sobre o resultado das validações para que o código em C++ os gerencie.  \end{enumerate*}
+
+
+
+
+
+
+
+\end{document}
