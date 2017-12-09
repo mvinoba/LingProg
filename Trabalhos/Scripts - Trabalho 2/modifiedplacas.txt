@@ -1,0 +1,5 @@
+Válido   | KMF-0001
+Válido   | FXP-2929
+Inválido | ABC-1234
+Inválido | LXP-4532
+Válido   | FSP-4585
